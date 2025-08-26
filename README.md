@@ -62,11 +62,11 @@ npm run dev
   - The state for the searched location: Lives in Context
   - This allowed me to leverage two individual datasets with the same interfaces to reuse components and compare with each other
 - Added the OpenCageData API into the functionality:
-  - Weather.gov API was good for forecast but only works with coordinates which limited me for the search feature if a user is to search a forecast by name. So I looked for an API that I can get coordinates for multiple locations by name for the search feature.
-  - OpenCageData API allows forward and reverse geocode for accurate location names
-  - OpenCageData API can get a list of options with the same name for searching, which made it easy to use alongside the Weather.gov API to search for other forecasts.
+  - The Weather.gov API provides good forecast data but only works with coordinates, which limited the search feature if a user wanted to look up a forecast by name. To address this, I looked for an API that could provide coordinates for multiple locations by name
+  - OpenCageData API supports forward and reverse geocoding for accurate location names
+  - It can return a list of locations with the same name, making it easy to integrate with the Weather.gov API for searching forecasts by different locations
 - Made a reusable modal for Search results and favorites
- - Allowed me not have to reinvent the wheel for showing a list of the same type of selectable items
+  - Allowed me to reuse the component for displaying a list of similar selectable items without reinventing the wheel
 - Used Rechart library for charts and graphs
   - Chose it since it's very customizable and good documentation
   - Leveraged ComponentType for easy abstraction when showing which graph to render
