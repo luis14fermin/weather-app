@@ -48,19 +48,19 @@ npm run dev
       - If users are viewing a searched location they have the option to compare the data with their current location
 - App.tsx is the root component wrapped by a context provider mainly for searched forecast data, favorites and date selection
   - Using the shared context, if a searched location is selected then it takes priority rendering over the current location's forecast until the user returns
-  - Favorite locations are held in an array for accessible forecast search when it's selected
+  - Favorite locations are stored in an array for easy access when searching forecasts
   - Date selection is shared across logic for both current and searched location
 - Included models for incoming objects from APIs for type checking expected values
 - Utils file for reusable functions/logic
 - Error fallbacks and Loading logic included where necessary
-- Tests are included for main child components use Jest and RTL
+- Tests are included for main child components using Jest and RTL
 - Deployed in Netlify 
 
 ## **Assumptions & Design Decisions**
 - To hit all requirements, I created 2 main states: 
   - The state for the current location: Lives in AppContent.tsx
   - The state for the searched location: Lives in Context
-  - This allowed me to leverage two individual datasets with the same interfaces to reuse components and compare with each other
+  - This setup allowed me to manage two separate datasets using the same interfaces, enabling reusing component and easy comparison between location forecasts
 - Added the OpenCageData API into the functionality:
   - The Weather.gov API provides good forecast data but only works with coordinates, which limited the search feature if a user wanted to look up a forecast by name. To address this, I looked for an API that could provide coordinates for multiple locations by name
   - OpenCageData API supports forward and reverse geocoding for accurate location names
@@ -68,14 +68,14 @@ npm run dev
 - Made a reusable modal for Search results and favorites
   - Allowed me to reuse the component for displaying a list of similar selectable items without reinventing the wheel
 - Used Rechart library for charts and graphs
-  - Chose it since it's very customizable and good documentation
+  - Chose it since it's very customizable and has good documentation
   - Leveraged ComponentType for easy abstraction when showing which graph to render
-  - Allowed the user to compare only to current location when viewing a searched location since it's the only time I have more than one data set
+  - Allowed comparisons between a searched location and the current location, the only case with more than one dataset
 - Forecast renders a 24hour view and 7 day view
   - If viewing today's forecast it shows the 24 hours starting from current time
   - If viewing a different date it shows the 24 hours starting from midnight
   - Mapped Icons to Forecast strings as an easy way to access visuals when mapping data
-  - Forecast for each day of the week gets the high and low, and most occurring string forecast to determine the icon
+  - The week forecast captures the high and low temperatures and the most frequent weather condition to determine the icon
 - Went with a mobile first design so responsiveness is baked into my structure
   - Resulted in only one media query needed to tweak the responsiveness
 - Used vanilla CSS for styling (personal preference for fun)
