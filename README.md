@@ -50,7 +50,7 @@ npm run dev
   - Using the shared context, if a searched location is selected then it takes priority rendering over the current location's forecast until the user returns
   - Favorite locations are held in an array for accessible forecast search when it's selected
   - Date selection is shared across logic for both current and searched location
-- Included models for incoming objects from API for type checking expected values
+- Included models for incoming objects from APIs for type checking expected values
 - Utils file for reusable functions/logic
 - Error fallbacks and Loading logic included where necessary
 - Tests are included for main child components use Jest and RTL
@@ -60,10 +60,11 @@ npm run dev
 - To hit all requirements, I created 2 main states: 
   - The state for the current location: Lives in AppContent.tsx
   - The state for the searched location: Lives in Context
-  - The allows me to leverage two individual datasets with the same interfaces to reuse components and compare with each other
-- Added the OpenCageData API into the functionality to allow me to:
-  - Forward and reverse geocode for accurate location names
-  - Get a list of options with the same name for searching
+  - This allowed me to leverage two individual datasets with the same interfaces to reuse components and compare with each other
+- Added the OpenCageData API into the functionality:
+  - Weather.gov API was good for forecast but only works with coordinates which limited me for the search feature if a user is to search a forecast by name. So I looked for an API that I can get coordinates for multiple locations by name for the search feature.
+  - OpenCageData API allows forward and reverse geocode for accurate location names
+  - OpenCageData API can get a list of options with the same name for searching, which made it easy to use alongside the Weather.gov API to search for other forecasts.
 - Made a reusable modal for Search results and favorites
  - Allowed me not have to reinvent the wheel for showing a list of the same type of selectable items
 - Used Rechart library for charts and graphs
@@ -75,7 +76,7 @@ npm run dev
   - If viewing a different date it shows the 24 hours starting from midnight
   - Mapped Icons to Forecast strings as an easy way to access visuals when mapping data
   - Forecast for each day of the week gets the high and low, and most occurring string forecast to determine the icon
-- Went with a mobile first design so the page easily adjust based on width
+- Went with a mobile first design so responsiveness is baked into my structure
   - Resulted in only one media query needed to tweak the responsiveness
 - Used vanilla CSS for styling (personal preference for fun)
   - Chose a blue gradient background to fit the weather theme as it looks like a sky
@@ -101,6 +102,7 @@ npm run dev
 - Better responsiveness for the charts in mobile view
 - Better implementation for accessability: More names, labels and aria-labels
 - Additional abstraction for missed reusable logic and similar component containers
+- Adding a Service Layer to handle API calls separately from components
 - Caching favorites so they persist on refresh
 - Router logic so users can go to a location's forecast with a unique URL path instead of having to search it every time
 - Breaking the context provider different providers
