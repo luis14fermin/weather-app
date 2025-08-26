@@ -5,7 +5,7 @@
 ---
 
 ## Overview
-A simple weather app built with React + TypeScrip.  
+A simple weather app built with React + TypeScript.  
 Users can view current weather information or search for a location's weather using the OpenCage Geocoding API and the weather.gov API.
 
 ---
