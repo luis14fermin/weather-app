@@ -88,7 +88,9 @@ npm run dev
 - Display 7 day forecast
 - Search other US locations and view forecast data
 - Favorites Feature
+  - NOTE: Search a location and press the star icon at the top to add or remove it from favorites
 - Weather comparison with current location vs another location
+  - NOTE: Only available when viewing a searched location, a button will render in the bottom of the graph giving the option to add current location data to compare
 - 2 different types of data visualization graphs
 
 ## **Future Improvements**
@@ -97,6 +99,7 @@ npm run dev
 - Current time adjusting to other timezones when viewing other locations
 - Buttons on the sides of the day and week forecast views for better UX with the mouse
 - Better responsiveness for the charts in mobile view
+- Better implementation for accessability: More names, labels and aria-labels
 - Additional abstraction for missed reusable logic and similar component containers
 - Caching favorites so they persist on refresh
 - Router logic so users can go to a location's forecast with a unique URL path instead of having to search it every time
@@ -104,3 +107,4 @@ npm run dev
 - Breaking up the CSS into different files for better maintainability
 - Combining similar CSS classes into one
 - More customized error states and messages
+- End-to-End test coverage
