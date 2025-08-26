@@ -9,8 +9,8 @@ const Search = () => {
     const [ search, setSearch ] = useState('');
     const [ locations, setLocations ] = useState<LocationData[]>([]);
     const [ loading, setLoading ] = useState(false);
-
-    const getLocations = async () => {
+    
+    const getLocations = () => {
         setModalOpen(true)
         setLoading(true);
 
@@ -30,9 +30,20 @@ const Search = () => {
             })
     }
 
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter" && search.length > 0) {
+            getLocations();
+        }
+    };
+
     return(
         <div className='menuSection'>
-            <input placeholder="Search location..." value={search} onChange={(e) => setSearch(e.target.value)} />
+            <input
+                placeholder="Search location..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={handleKeyPress}
+            />
             {search && <button onClick={getLocations}>
                 <CiSearch />
             </button>}
