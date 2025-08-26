@@ -25,7 +25,8 @@ const AppContent = () => {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
-            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude},+${position.coords.longitude}&key=${process.env.REACT_APP_OPEN_CAGE_API_KEY}`)
+            const apiKey = import.meta.env.VITE_OPEN_CAGE_API_KEY
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude},+${position.coords.longitude}&key=${apiKey}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setCurrentLocation({

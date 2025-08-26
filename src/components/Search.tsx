@@ -14,7 +14,8 @@ const Search = () => {
         setModalOpen(true)
         setLoading(true);
 
-        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${search}&key=${process.env.REACT_APP_OPEN_CAGE_API_KEY}&countrycode=us`)
+        const apiKey = import.meta.env.VITE_OPEN_CAGE_API_KEY
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${search}&key=${apiKey}&countrycode=us`)
             .then((res) => res.json())
             .then((data) => setLocations(
                 data.results.map((result:LocationData) => ({ 
